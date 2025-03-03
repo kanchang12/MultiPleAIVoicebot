@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import Fastify from 'fastify';
 import Twilio from 'twilio';
 import WebSocket from 'ws';
+import path from 'path'; // Import path
 
 // Load environment variables from .env file
 dotenv.config();
@@ -28,15 +29,17 @@ if (
   throw new Error('Missing required environment variables');
 }
 
-// Initialize Fastify server
-const fastify = Fastify();
+const fastify = Fastify({ logger: true });
 fastify.register(fastifyFormBody);
 fastify.register(fastifyWs);
 
-// Root route for health check
-fastify.get('/', async (_, reply) => {
-  reply.send({ message: 'Server is running' });
+// Serve static files (index.html)
+fastify.register(require('@fastify/static'), {
+  root: path.join(__dirname, 'public'),
+  prefix: '/',
 });
+
+
 
 // Initialize Twilio client
 const twilioClient = new Twilio(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
