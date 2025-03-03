@@ -356,10 +356,10 @@ IMPORTANT:
   });
 });
 
-fastify.listen({ host: '0.0.0.0' }, (err, address) => { // Listen on all interfaces
-    if (err) {
-        console.error(err);
-        process.exit(1);
-    }
-    console.log(`[SERVER] Listening on ${address}`); // Keep this log for debugging
+fastify.listen({ host: '0.0.0.0', port: 8000 }, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log(`Server listening on ${address}`);
 });
