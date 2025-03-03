@@ -1,21 +1,21 @@
 {
   "name": "fastify-twilio",
   "version": "1.0.0",
-  "description": "Outbound call API using Twilio and Fastify",
+  "description": "",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "node server.js"
   },
-  "dependencies": {
-    "@fastify/formbody": "^8.0.2",
-    "@fastify/websocket": "^11.0.2",
-    "dotenv": "^16.4.7",
-    "fastify": "^5.2.1",
-    "twilio": "^5.4.5",
-    "ws": "^8.18.1"
-  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/formbody": "^7",
+    "@fastify/static": "^6",
+    "@fastify/websocket": "^8",
+    "dotenv": "^16",
+    "fastify": "^4",
+    "twilio": "^4",
+    "ws": "^8"
+  }
 }
