@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call System</title>
+</head>
+<body>
+    <h1>Make an Outbound Call</h1>
+    <input type="text" id="phoneNumber" placeholder="Enter phone number">
+    <button onclick="makeCall()">Call</button>
+
+    <script>
+        async function makeCall() {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            if (!phoneNumber) {
+                alert("Please enter a phone number");
+                return;
+            }
+            const response = await fetch("/call", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ phoneNumber })
+            });
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</body>
+</html>
