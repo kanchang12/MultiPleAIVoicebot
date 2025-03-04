@@ -1,7 +1,1 @@
-fastapi
-uvicorn
-twilio
-python-dotenv
-elevenlabs
-starlette
-python-multipart
+flask
