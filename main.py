@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
@@ -25,7 +26,7 @@ HTML_FORM = """
             const phoneNumber = document.getElementById('phoneNumber').value;
 
             // Send the phone number to your Make.com webhook
-            fetch('https://hook.eu2.make.com/2jla9hn1casiql7wxp69w40csx9cuq11', {
+            fetch('https://hook.make.com/YOUR_MAKE_WEBHOOK_URL', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,4 +53,5 @@ def home():
     return render_template_string(HTML_FORM)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use PORT environment variable or default to 5000
+    app.run(host='0.0.0.0', port=port)
