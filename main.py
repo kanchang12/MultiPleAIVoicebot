@@ -26,7 +26,7 @@ HTML_FORM = """
             const phoneNumber = document.getElementById('phoneNumber').value;
 
             // Send the phone number to your Make.com webhook
-            fetch('https://hook.make.com/YOUR_MAKE_WEBHOOK_URL', {
+            fetch('https://hook.eu2.make.com/2jla9hn1casiql7wxp69w40csx9cuq11', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
